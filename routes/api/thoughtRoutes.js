@@ -16,32 +16,32 @@ router
     .get(getAllThought)
     .post(addThought)
 
-//api/thoughts/<thoughtId>  
+
 router
     .route('/:thoughtId')
     .get(getThoughtById)
     .delete(removeThought)
     .put(updateThought);
 
-//api/thoughts/<userId>
+
 router.route('/:UserId').post(addThought);
 
-//api/thoughts/<userId>/<thoughtId>
+
 router
     .route('/:userId/:thoughtId')
     .put(addReaction)
     .delete(removeReaction);
 
 
-//api/thoughts/<thoughtId/reactions>  
 router
     .route('/:thoughtId/reactions')
     .post(addReaction);
 
 
 router
-    .route('/:thoughtId/reactions/reactionId')
-    .delete(removeReaction);
+.route('/:thoughtId/reactions/:reactionId')
+.delete(removeReaction);
+
 
 
 module.exports = router;
