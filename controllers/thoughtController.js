@@ -3,7 +3,7 @@ const { Thought, User } = require('../models');
 const thoughtController = {
 
 // get all thoughts
-getAllThought(req, res) {
+getThought(req, res) {
 Thought.find({})
     .then(dbThoughtData => res.json(dbThoughtData))
     .catch(err => {
@@ -115,7 +115,7 @@ Thought.findOneAndUpdate(
 )
     .then(dbThoughtData => {
     if (!dbThoughtData) {
-        res.status(404).json({ message: "No thought" });
+        res.status(404).json({ message: "No thought with this Id" });
         return;
     }
     res.json(dbThoughtData);
